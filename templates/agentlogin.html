@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<title>AgentLogin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('http://cdn-img.instyle.com/sites/default/files/1471540529/081816-new-york-city.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+  
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top w3-center">NYC Real Estate</h1>
+     <p class="w3-large w3-center">Make Your Dreams Come True</p>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+ <!--   <p class="w3-large w3-center">{{signal}}</p>   -->
+
+    
+
+<form method="POST" action="/checkvalid" id='check-valid-form'>
+
+  <p class="w3-large w3-center"><label  for="username">Email </label><input type="text" id="username" name="username" placeholder="input your username" ></p>
+
+  <p class="w3-large w3-center"><label  for="password">Password </label><input type="text" id= "password" name = "password" placeholder="input your password"></p>
+
+  <p class="w3-large w3-center"><input  type="submit" value="login" id="check-valid-submit"></p>
+
+</form>
+</div>
+
+
+  
+<div class="w3-display-bottommiddle w3-padding-large w3-text-white">
+    Powered by <a>Jun Hu & Xiyan Liu</a>
+</div>
+
+<!-- <div>
+<form method="POST" action="http://0.0.0.0:8112/agent_dashboard" id="agent_dashboard">
+<input type="hidden" name="id" value="10" />
+</form>
+</div> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+
+    $("#check-valid-form").submit( function(evt){
+      
+      // prevent the form from submitting to the target
+      evt.preventDefault();
+
+      // collect user input
+      // const username = document.getElementById("username").value;
+      // const password = document.getElementById("password").value;
+      const username = $("#username").val();
+      const password = $("#password").val();
+      console.log(`username: ${username}, password: ${password}`);
+
+      var form = new FormData();
+      // form.append("username", "Jessamine.Wells@bestrealestate.com");
+      // form.append("password", "agnt1");
+      form.append("username", username);
+      form.append("password", password);
+
+      console.log(form);
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+
+        /* Update this url after you upload */
+        "url": "http://0.0.0.0:8111/checkvalid",
+        "method": "POST",
+        "headers": {
+          "cache-control": "no-cache"
+          // "postman-token": "2ba58be2-8416-bcf0-1a8a-00f6ae971008"
+        },
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+      }
+
+      // send the request to server /checkvalid
+      $.ajax(settings).done( function(response) {
+        
+        // check the type of response, which is a string
+        // this step doesn't really do anything, just shows that we need to 
+        // convert it into JSON so we can access the key value pairs inside
+        console.log(typeof response);
+
+        // parse the string into a json object
+        response = JSON.parse(response);
+
+        // get the state of the server response
+        const state = response["state"];
+        console.log(state);
+        console.log(response);
+
+        // if login successfully
+        if ( state == "succeed" ) {
+
+          console.log("ajax login succeed...");
+          // redirect the page to another html by doing a get request to 
+          // '/agent_dashboard' returned by the server
+          // const userid = response['user_info']['userid'];
+          // window.location = response['redirect'] + '?agntid=' + userid;
+          const agent_id = response["agentid"];
+
+          var form1 = new FormData();
+          
+          form1.append("agentid", agent_id);
+          localStorage.setItem("agent_id", agent_id);
+          window.location = response['redirect'];
+
+          // const settings1 = {
+
+          //   "async": true,
+          //   "crossDomain": true,
+
+          //   /* Update this url after you upload */
+          //   "url": "http://0.0.0.0:8112/agent_dashboard",
+          //   "method": "POST",
+          //   "headers": {
+          //     "cache-control": "no-cache"
+          //     // "postman-token": "2ba58be2-8416-bcf0-1a8a-00f6ae971008"
+          //   },
+          //   "processData": false,
+          //   "contentType": false,
+          //   "mimeType": "multipart/form-data",
+          //   "data": form1
+          // };
+
+          // console.log(typeof settings1)
+          // $.ajax(settings1).done(function(response2){
+          //   console.log(response2);
+          //   console.log("second ajax done...");
+          //   $(body).append( $.html(response2) );
+
+          // });
+
+          // window.location = response["redirect"] + '?agntid' + agent_id;
+        }
+        // if login failed
+        else if ( state == 'failed' ) {
+
+          // alert the user that their 
+          alert("Login Failed, Please Try Again.");
+
+        }
+
+
+      });
+
+    
+    }); 
+
+
+  </script>
+
+</body>
+</html>

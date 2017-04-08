@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<title>Agentsresult</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+h2 {margin:0}
+body {
+    background-color: black;
+}
+</style>
+
+<header class="w3-display-container w3-bar w3-black">
+        {% include "header.html" %}
+</header>
+
+<div class="w3-display-container w3-center w3-pink">
+    <h2>Your Information</h2>
+    {% include "agents_info.html" %}
+</div>
+
+<div class="w3-container w3-center w3-teal">
+        <h2>List A New Property!</h2>
+        <form class="w3-container" method="POST" action="/add" name= "addform">
+      <label>Zip Code:</label><select class="w3-select" id="zip" name="zip">
+  <script>
+      var zip = 11697;
+      for(var i = 10001; i < zip+1; i++){
+	  document.write('<option value="'+i+'">'+i+'</option>');
+  }
+  </script></select>
+      <label>Address:</label><input class="w3-input w3-border" name = 'address' type="text" placeholder="# Street, Apartment, etc" required="true">
+
+      <label>Bedrooms:</label><select class="w3-select" name="bed">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            </select>
+
+      <label>Bathrooms:</label><select class="w3-select" name="bath">
+            <option value="0">1</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            </select>
+
+      <label for="intNumberStep3">Size (ft sq):</label>
+      <input class="w3-input w3-border" name="size" id="intNumberStep3" type="number" min="1" max="10000000" step="1" value="100000" required="true" />
+
+      <label>Built Year:</label><select class="w3-select" id="year" name="bdate">
+      <script>
+          var myDate = new Date();
+          var year = myDate.getFullYear();
+          for(var i = 1900; i < year+1; i++){
+              document.write('<option value="'+i+'">'+i+'</option>');
+          }
+      </script>
+        </select>
+
+      <label>District:</label><select class="w3-select" name="bid">
+        <option value = "blk1">blk1</option>
+        <option value = "blk2">blk2</option>
+        <option value = "blk3">blk3</option>
+        <option value = "blk4">blk4</option>
+        <option value = "blk5">blk5</option>
+        <option value = "blk6">blk6</option>
+        <option value = "blk7">blk7</option>
+        <option value = "blk8">blk8</option>
+        <option value = "blk9">blk9</option>
+        <option value = "blk10">blk10</option>
+        <option value = "blk11">blk11</option>
+        <option value = "blk12">blk12</option>
+        <option value = "blk13">blk13</option>
+        <option value = "blk14">blk14</option>
+        <option value = "blk15">blk15</option>
+        <option value = "blk16">blk16</option>
+        <option value = "blk17">blk17</option>
+        <option value = "blk18">blk18</option>
+        <option value = "blk19">blk19</option>
+        <option value = "blk20">blk20</option>
+        <option value = "blk21">blk21</option>
+        <option value = "blk22">blk22</option>
+        <option value = "blk23">blk23</option>
+        <option value = "blk24">blk24</option>
+        <option value = "blk25">blk25</option>
+        <option value = "blk26">blk26</option>
+        <option value = "blk27">blk27</option>
+        <option value = "blk28">blk28</option>
+        <option value = "blk29">blk29</option>
+        <option value = "blk30">blk30</option>
+        <option value = "blk31">blk31</option>
+        <option value = "blk32">blk32</option>
+        <option value = "blk33">blk33</option>
+        <option value = "blk34">blk34</option>
+        <option value = "blk35">blk35</option>
+        <option value = "blk36">blk36</option>
+        <option value = "blk37">blk37</option>
+        <option value = "blk38">blk38</option>
+        <option value = "blk39">blk39</option>
+        <option value = "blk40">blk40</option>
+        <option value = "blk41">blk41</option>
+      </select>
+
+      Water Front: <input type = "radio" name = "water" value = "true" checked="checked">Yes
+      <input type = "radio" name = "water" value = "false">No<br/>
+
+      <label for="intNumberStep3">List Price:</label>
+      <input class="w3-input w3-border" name="listprice" id="intNumberStep3" type="number" min="1" max="100000000" step="1" value="500000" required="true" />
+
+      <label for="intNumberStep3">Evaluated Price:</label>
+      <input class="w3-input w3-border" name="evalprice" id="intNumberStep3" type="number" min="1" max="100000000" step="1" value="500000" required="true" />
+
+      Tax Abatement: <input  type = "radio" name = "taxde" value = "true" checked="checked">Yes
+      <input  type = "radio" name = "taxde" value = "false">No<br/>
+
+      <label for="intNumberStep3">Maintenance Fee:</label>
+      <input class="w3-input w3-border" name="maintenancefee" id="intNumberStep3" type="number" min="0" max="10000" step="1" value="0" required="true" />
+
+      <label for="fieldSsn">Owner SSN: </label>
+      <input class="w3-input w3-border" type="text" id="fieldSsn" name="ossn" placeholder="XXX-XX-XXXX" pattern="\d{3}-?\d{2}-?\d{4}" required="true">
+
+      <label>Owner's First Name:</label><input class="w3-input w3-border" name = 'ofname' type="text" placeholder="John (At Least 2 Letters / But Less Than 23 Letters)" pattern="[a-zA-Z]{2,23}" required="true">
+      <label>Owner's Last Name:</label><input class="w3-input w3-border" name = 'olname' type="text" placeholder="Smith (At Least 2 Letters / But Less Than 23 Letters)" pattern="[a-zA-Z]{2,23}" required="true">
+
+      Today's Date (Date Of Listing): <label id="date"></label>
+      <script>
+          n =  new Date();
+          y = n.getFullYear();
+          m = n.getMonth() + 1;
+          d = n.getDate();
+          document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+      </script>
+
+
+            <input type = "hidden" name ="aid" value = "{{aid}}">
+
+
+      <input class="w3-input w3-border w3-btn w3-blue-grey"  type = "submit" value = "List New Property">
+  </form>
+</div>
+
+<div class="w3-display-container w3-center w3-light-green">
+    <h2>Properties On Sale Under You</h2>
+    <table class="w3-table w3-centered w3-tiny w3-hoverable">
+    <tr class="w3-hover-pale-yellow w3-hover-text-red w3-text-dark-grey">
+        <th>P-Id</th>
+        <th>Zip Code</th>
+        <th>Address</th>
+        <th>Bed</th>
+        <th>Bath</th>
+        <th>Size</th>
+        <th>Built Date</th>
+        <th>District</th>
+        <th>Water Front</th>
+        <th>Bus</th>
+        <th>Subway</th>
+        <th>List Date</th>
+        <th>List Price</th>
+        <th>Evaluated Price</th>
+        <th>Tax-Abat</th>
+        <th>M-Fee</th>
+        <th>A-Id</th>
+        <th>Owner SSN</th>
+        <th>Owner Name</th>
+        <th>Schools Info</th>
+
+  </tr>
+    {% for n in data %}
+        <!-- <div>{{n}}</div> -->
+        <tr class="w3-border w3-border-red w3-hover-white">
+            {% for p in n %}
+                <td class="w3-border w3-border-red w3-hover-pink"> {{p}} </td>
+                <!-- <div>{{p}}</div> -->
+            {% endfor %}
+            <td class="w3-hover-purple"><form method = "POST" name = "school" action = "/school"><input type = "hidden" name ="clicked" value = "{{data[loop.index - 1][0]}}"><input type = "submit" value = "Show"></form></td>
+
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+<div class="w3-display-container w3-center w3-lime">
+    <h2>Properties Sold By You</h2>
+    <table class="w3-table w3-centered w3-tiny w3-hoverable">
+    <tr class="w3-hover-pale-yellow w3-hover-text-red w3-text-dark-grey">
+        <th>P-Id</th>
+        <th>Zip Code</th>
+        <th>Address</th>
+        <th>Bed</th>
+        <th>Bath</th>
+        <th>Size</th>
+        <th>Built Date</th>
+        <th>District</th>
+        <th>Water Front</th>
+        <th>Bus</th>
+        <th>Subway</th>
+        <th>List Date</th>
+        <th>List Price</th>
+        <th>Evaluated Price</th>
+        <th>Tax-Abat</th>
+        <th>M-Fee</th>
+        <th>A-Id</th>
+        <th>Sold Price</th>
+        <th>Owner SSN</th>
+        <th>Owner Name</th>
+        <th>Schools Info</th>
+
+  </tr>
+    {% for n in data1 %}
+        <!-- <div>{{n}}</div> -->
+        <tr class="w3-border w3-border-red w3-hover-white">
+            {% for p in n %}
+                <td class="w3-border w3-border-red w3-hover-pink"> {{p}} </td>
+                <!-- <div>{{p}}</div> -->
+            {% endfor %}
+            <td class="w3-hover-purple"><form method = "POST" name = "school" action = "/school"><input type = "hidden" name ="clicked" value = "{{data[loop.index - 1][0]}}"><input type = "submit" value = "Show"></form></td>
+
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+</html>
+
+
+

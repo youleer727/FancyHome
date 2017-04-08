@@ -1,0 +1,59 @@
+<div>
+    <form method="POST" action="/propertiesresult" name= "search_form">
+        Bedroom Number At Least:
+        <select name = "bed">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+            <option value = "6">6</option>
+        </select><br/>
+        Bathroom Number At least:
+        <select name = "bath">
+            <option value = "0">0</option>
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+        </select><br/>
+        Minimum Size (sq ft):
+        <select name = "min_square">
+            <option value = "0">0</option>
+            <option value = "1000">1000</option>
+            <option value = "5000">5000</option>
+            <option value = "10000">10000</option>
+        </select><br/>
+        Maximum Size (sq ft):
+        <select name = "max_square">
+            <option value = "10000000">10000000</option>
+            <option value = "1000000">1000000</option>
+            <option value = "100000">100000</option>
+            <option value = "50000">50000</option>
+        </select><br/>
+        Minimum List Price:
+        <select name = "min_listprice">
+            <option value = "0">0</option>
+            <option value = "100000">100000</option>
+            <option value = "200000">200000</option>
+            <option value = "300000">300000</option>
+        </select><br/>
+        Maximum List Price:
+        <select name = "max_listprice">
+            <option value = "100000000">100000000</option>
+            <option value = "10000000">10000000</option>
+            <option value = "1000000">1000000</option>
+            <option value = "500000">500000</option>
+        </select><br/>
+        Water:
+        <input type = "radio" name = "water" value = "true">Yes
+        <input type = "radio" name = "water" value = "false" checked="checked">No<br/>
+        Tax Abatement:
+        <input type = "radio" name = "taxde" value = "true" checked="checked">Yes
+        <input type = "radio" name = "taxde" value = "false">No<br/>
+        Market State:
+        <input type = "radio" name = "sale" value = "true" checked="checked">On Sale
+        <input type = "radio" name = "sale" value = "false">Closed<br/>
+        <input type = "submit" value = "Search Properties">
+    </form>
+</div>

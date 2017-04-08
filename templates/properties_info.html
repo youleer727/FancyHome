@@ -1,0 +1,35 @@
+<table class="w3-table w3-centered w3-tiny w3-hoverable">
+    <tr class="w3-hover-pale-yellow w3-hover-text-red w3-text-dark-grey">
+        <th>P-Id</th>
+        <th>Zip Code</th>
+        <th>Address</th>
+        <th>Bed</th>
+        <th>Bath</th>
+        <th>Size</th>
+        <th>Built Date</th>
+        <th>District</th>
+        <th>Water Front</th>
+        <th>Bus</th>
+        <th>Subway</th>
+        <th>List Date</th>
+        <th>List Price</th>
+        <th>Evaluated Price</th>
+        <th>Tax-Abat</th>
+        <th>M-Fee</th>
+        <th>A-Id</th>
+        <th>Schools Info</th>
+        <th>Agent Info</th>
+  </tr>
+    {% for n in data %}
+        <!-- <div>{{n}}</div> -->
+        <tr class="w3-border w3-border-red w3-hover-white">
+            {% for p in n %}
+                <td class="w3-border w3-border-red w3-hover-pink"> {{p}} </td>
+                <!-- <div>{{p}}</div> -->
+            {% endfor %}
+            <td class="w3-hover-purple"><form method = "POST" name = "school" action = "/school"><input type = "hidden" name ="clicked" value = "{{data[loop.index - 1][0]}}"><input type = "submit" value = "Show"></form></td>
+            <td class="w3-hover-purple"><form method = "POST" name = "cartform" action = "/contactagent"><input type = "hidden" name ="clicked" value = "{{data[loop.index - 1][16]}}"><input type = "submit" value = "Contact"></form></td>
+        </tr>
+    {% endfor %}
+</table>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<title>Contactagent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+h2 {margin:0}
+body {
+    background-color: black;
+}
+</style>
+
+<header class="w3-display-container w3-bar w3-black">
+        {% include "header.html" %}
+</header>
+
+<div class="w3-cell-row w3-center">
+    <div class="w3-display-container w3-cell w3-khaki">
+        <h2>Search Your target Properties!</h2>
+        <h4>{% include "properties_search.html" %}</h4>
+    </div>
+    <div class="w3-display-container w3-cell w3-teal">
+        <h2>Search The Popular Agents!</h2>
+        <h4>{% include "agents_search.html" %}</h4>
+    </div>
+</div>
+
+<div class="w3-display-container w3-center w3-aqua">
+    <h2>The Agent You Are Goning To Contact</h2>
+    {% include "agents_info.html" %}
+</div>
+
+<div class="w3-display-container w3-center w3-light-green">
+    <h2>Properties On Sale Under This Agent</h2>
+    {% include "properties_info.html" %}
+</div>
+
+<div class="w3-display-container w3-center w3-lime">
+    <h2>Properties Sold By This Agent</h2>
+    {% include "properties_info1.html" %}
+</div>
+
+</html>
+
+

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<title>AgentLogin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('http://cdn-img.instyle.com/sites/default/files/1471540529/081816-new-york-city.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+	<div class="bgimg w3-display-container w3-text-white">
+  	<div class="w3-display-topleft w3-padding-large w3-xlarge">
+  	
+  	</div>
+  	<div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top w3-center">NYC Real Estate</h1>
+     <p class="w3-large w3-center">Make Your Dreams Come True</p>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">	
+    <form method="POST" action="/agent_dashboard_result" id='agent-form'>
+
+  	<p class="w3-large w3-center"><input type="submit" value="Loading Successfully! Confirm" id="check-valid-submit"></p>
+
+	</form>
+	</div>
+	
+
+	<script type="text/javascript">
+		
+		const agent_id = localStorage.getItem('agent_id');
+		console.log(`agent_id: ${agent_id}`);
+		// myform = document.createElement('form');
+		// myform.method = 'post';
+		// myform.action = "/agent_dashboard_result";
+
+		input1 = document.createElement('input');
+		input1.type = 'hidden';
+		input1.name = 'agentid';
+		input1.value = agent_id;
+
+		document.getElementById('agent-form').appendChild(input1);
+		$("#agent-form").submit();
+
+	</script>	
+</body>
+</html>

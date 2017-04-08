@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>AgentLogin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('http://cdn-img.instyle.com/sites/default/files/1471540529/081816-new-york-city.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+  
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top w3-center">NYC Real Estate</h1>
+     <p class="w3-large w3-center">Make Your Dreams Come True</p>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+ <!--   <p class="w3-large w3-center">{{signal}}</p>   -->
+
+    
+
+<form method="POST" action="/checkvalid">
+
+<p class="w3-large w3-center"><label  for="username">Email </label><input type="text" id="username" name="username" placeholder="input your username" ></p>
+
+<p class="w3-large w3-center"><label  for="password">Password </label><input type="text" id= "password" name = "password" placeholder="input your password"></p>
+
+<p class="w3-large w3-center"><input  type="submit" value="login"></p>
+</form>
+
+</div>
+
+
+<!--     <div class="w3-display-bottomright w3-padding-large w3-text-white"><h4> Legit users are</h4>
+
+    {% for n in data %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div> -->
+  
+<div class="w3-display-bottommiddle w3-padding-large w3-text-white">
+    Powered by <a>Jun Hu & Xiyan Liu</a>
+</div>
+
+
+
+</body>
+</html>

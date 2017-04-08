@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>Schools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+h2 {margin:0}
+body {
+    background-color: black;
+}
+</style>
+
+<header class="w3-display-container w3-bar w3-black">
+        {% include "header.html" %}
+</header>
+
+<div class="w3-cell-row w3-center">
+    <div class="w3-display-container w3-cell w3-khaki">
+        <h2>Search Your target Properties!</h2>
+        <h4>{% include "properties_search.html" %}</h4>
+    </div>
+    <div class="w3-display-container w3-cell w3-teal">
+        <h2>Search The Popular Agents!</h2>
+        <h4>{% include "agents_search.html" %}</h4>
+    </div>
+</div>
+
+<div class="w3-display-container w3-center w3-pale-yellow">
+    <h2>The Property You Are Viewing</h2>
+    {% include "properties_info.html" %}
+</div>
+
+<div class="w3-display-container w3-center w3-pale-red">
+    <h2>Schools of Neighborhood</h2>
+    <table class="w3-table w3-centered w3-hoverable">
+        <tr class="w3-hover-pale-yellow w3-hover-text-red w3-text-indigo">
+            <th>Primary School</th>
+            <th>Middle School</th>
+            <th>High School</th>
+        </tr>
+        {% for n in data2 %}
+            <!-- <div>{{n}}</div> -->
+            <tr class="w3-border w3-border-red w3-hover-white">
+                {% for p in n %}
+                    <td class="w3-border w3-border-blue w3-hover-white"> {{p}} </td>
+                    <!-- <div>{{p}}</div> -->
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</html>
