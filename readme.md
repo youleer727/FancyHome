@@ -248,8 +248,3 @@ We have implemented all the features in Part1, and made the web application inte
 | Hedda.Sherman@gmail.com              | agnt46   |
 | Germane.Kirk@wonderproperty.com      | agnt47   |
 
-
-
-
-
-[https://104.155.207.69/8111/]:<https://104.155.207.69/8111/>
