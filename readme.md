@@ -1,22 +1,22 @@
-#Properties Management
-##(COMS4111, Project 1, Part 3)
+# Properties Management
+## (COMS4111, Project 1, Part 3)
 
 
-###PostgreSQL account:
+### PostgreSQL account:
 ```bash
 psql -Uxl2672 -h 104.196.18.7 -d w4111
 ```
-###Group UNI
+### Group UNI
 ```bash
 Jun Hu (jh3846)& Xiyan Liu (xl2672)
 ```
-###URL
-[https://104.155.207.69/8111/]
+### URL
+[http://104.155.207.69:8111/]
 
-###Implementation
+### Implementation
 We have implemented all the features in Part1, and made the web application interact with all the data in Part 2. In below, ```Web Map``` shows all the main features of our website.
 
-###Web Application Mapping
+### Web Application Mapping
 * HOME
     * BUYER
         * HEADER LINKS
@@ -197,7 +197,7 @@ We have implemented all the features in Part1, and made the web application inte
                                 1. primary schools
                                 2. middle schools
                                 3. high schools
-###Agents Login Info
+### Agents Login Info
 | ﻿agnt_email                           | password |
 |--------------------------------------|----------|
 | Jessamine.Wells@bestrealestate.com   | agnt1    |
