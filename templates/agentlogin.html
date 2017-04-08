@@ -13,6 +13,10 @@ body, html {height: 100%}
     background-position: center;
     background-size: cover;
 }
+/*form { display: table; }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }*/
 </style>
 <body>
 
@@ -30,9 +34,9 @@ body, html {height: 100%}
 
 <form method="POST" action="/checkvalid" id='check-valid-form'>
 
-  <p class="w3-large w3-center"><label  for="username">Email </label><input type="text" id="username" name="username" placeholder="input your username" ></p>
+  <p class="w3-large w3-center"><label  for="username">Email </label><input  class="w3-input w3-border w3-round" type="text" id="username" name="username" placeholder="input your username" ></p>
 
-  <p class="w3-large w3-center"><label  for="password">Password </label><input type="text" id= "password" name = "password" placeholder="input your password"></p>
+  <p class="w3-large w3-center"><label  for="password">Password </label><input  class="w3-input w3-border w3-round" type="text" id= "password" name = "password" placeholder="input your password"></p>
 
   <p class="w3-large w3-center"><input  type="submit" value="login" id="check-valid-submit"></p>
 
