@@ -14,7 +14,7 @@ Jun Hu (jh3846)& Xiyan Liu (xl2672)
 [https://104.155.207.69/8111/]
 
 ###Implementation
-We have implemented all the features in Part1, and interact with all the data in Part 2. In below, ```Web Map``` show all the main features of our website.
+We have implemented all the features in Part1, and made the web application interact with all the data in Part 2. In below, ```Web Map``` shows all the main features of our website.
 
 ###Web Application Mapping
 * HOME
